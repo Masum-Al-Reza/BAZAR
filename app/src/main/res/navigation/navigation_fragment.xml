@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_fragment"
+    app:startDestination="@id/orders">
+
+    <fragment
+        android:id="@+id/orders"
+        android:name="com.example.asssin.Orders"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/golds"
+        android:name="com.example.asssin.Golds"
+        android:label="golds"
+        tools:layout="@layout/golds" />
+    <fragment
+        android:id="@+id/go_out"
+        android:name="com.example.asssin.Go_out"
+        android:label="fragment_go_out"
+        tools:layout="@layout/fragment_go_out" />
+    <fragment
+        android:id="@+id/videos"
+        android:name="com.example.asssin.Videos"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
+</navigation>
