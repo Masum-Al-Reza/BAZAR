@@ -2,63 +2,101 @@ package com.example.asssin;
 
 import android.os.Bundle;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Golds#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Golds extends Fragment {
+import com.google.android.material.navigation.NavigationView;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class Golds extends Fragment  implements View.OnClickListener {
+    DrawerLayout drawerLayout;
+    ImageView navigationBar;
 
-    public Golds() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Golds newInstance(String param1, String param2) {
-        Golds fragment = new Golds();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    NavigationView navigationView;
+    private RelativeLayout loginsign,bookmark,gold;
+    private TextView yourorder,online_ordering_help,address_book,favourite_orders,send_feedback,report_safety,rate;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.golds, container, false);
+        view= inflater.inflate(R.layout.golds, container, false);
+        onSetNavigationDrawerEvents();
+        return view;}
+
+    private void onSetNavigationDrawerEvents() {
+        drawerLayout = (DrawerLayout) view.findViewById(R.id.drawerLayout);
+        navigationView = (NavigationView) view.findViewById(R.id.navigationView);
+        loginsign = (RelativeLayout) view.findViewById(R.id.relativeLayout);
+        bookmark = (RelativeLayout) view.findViewById(R.id.relativeLayout2);
+        gold = (RelativeLayout) view.findViewById(R.id.relativeLayout3);
+        yourorder = (TextView) view.findViewById(R.id.orderMN);
+        online_ordering_help = (TextView) view.findViewById(R.id.onlineMN);
+        address_book = (TextView) view.findViewById(R.id.AddressMN);
+        favourite_orders = (TextView) view.findViewById(R.id.favMN);
+        send_feedback = (TextView) view.findViewById(R.id.feedbackMN);
+        report_safety = (TextView) view.findViewById(R.id.reportMN);
+        rate = (TextView) view.findViewById(R.id.rateMN);
+
+
+
+
+        navigationBar = (ImageView) view.findViewById(R.id.navigationBar);
+
+        navigationBar.setOnClickListener(this);
+        yourorder.setOnClickListener(this);
+        address_book.setOnClickListener(this);
+        favourite_orders.setOnClickListener(this);
+        send_feedback.setOnClickListener(this);
+        report_safety.setOnClickListener(this);
+        rate.setOnClickListener(this);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.navigationBar:
+                drawerLayout.openDrawer(navigationView, true);
+                break;
+            case R.id.orderMN:
+                Toast.makeText(getContext(), "one", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.AddressMN:
+                Toast.makeText(getContext(), "two", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.favMN:
+                Toast.makeText(getContext(), "two", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.feedbackMN:
+                Toast.makeText(getContext(), "two", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.reportMN:
+                Toast.makeText(getContext(), "two", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.rateMN:
+                Toast.makeText(getContext(), "two", Toast.LENGTH_SHORT).show();
+
+                break;
+
+
+
+
+        }
+    }
+
+
 }
